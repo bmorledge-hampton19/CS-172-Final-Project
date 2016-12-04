@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="production.h" />
+    <ClInclude Include="upgrades.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DCD92D99-CA98-4FE9-9453-78D7D8CA95CA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
