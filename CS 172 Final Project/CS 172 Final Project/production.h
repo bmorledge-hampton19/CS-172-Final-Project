@@ -1,39 +1,48 @@
 #pragma once
-
 #include <iostream>
 #include <cstring>
 #include <vector>
+#include "upgrade.h"
 using namespace std;
 
-class Upgrade {
-
-private:
-	//upgrade modifying values
-	long int upgradeCppmAdditive;
-	double upgradeCppmMultiplicative;
-
-	long int upgradeRiskFactorAdditive;
-	double upgradeRiskFactorMultiplicative;
-
-	long int upgradeSellPriceAdditive;
-	double upgradeSellPriceMultiplicative;
-
-	long int upgradeProductionCostAdditive;
-	double upgradeProductionCostMultiplicative;
-
-	//upgrade parameters
-	string upgradeName;
-	long int upgradeCost;
-	string upgradeDescription;
+class Production {
+protected:
+	long int cookiesProduced;
+	long int cookieSellValue;
+	long int productionCost;
+	int catastrophicFailureChance;
+	vector<Upgrade*> upgrades;
+	bool activated;
+	long int initialCost;
 
 public:
-	//class definition
-	Upgrade(long int upgradeCppmAdditive, double upgradeCppmMultiplicative, long int upgradeRiskFactorAdditive, double upgradeRiskFactorMultiplicative, long int upgradeSellPriceAdditive, double upgradeSellPriceMultiplicative, long int upgradeProductionCostAdditive, double upgradeProductionCostMultiplicative, string upgradeName, long int upgradeCost, string upgradeDescription);
+	long int calculateMonthlyProfit();
 
-	//I Don't quite remember what this was supposed to do
-	long int activeUpgrade(ProductionMethod: Production*);
-	
-	//I'm not entirely sure what this is supposed to do
-	//If I remember correctly it was to display the upgrade parameters to the menu
-	void displayUpgradeParameters();
+	virtual void checkForFailure();
+
+	long int purchaseProduction(long int currentFunds);
+
+	long int purchaseUpgrade(int upgradeIndex, long int currentFunds);
+
+	virtual void initializeUpgrades();
+
+	virtual string getNameOfProductionType();
+
+	long int getCookiesProduced();
+
+	void setCookiesProduced(long int cookiesProduced);
+
+	long int getCookieSellValue();
+
+	void setCookieSellValue(long int cookieSellValue);
+
+	long int getProductionCost();
+
+	void setProductionCost(long int productionCost);
+
+	int getCatastrophicFailureChance();
+
+	void setCatastrophicFailureChance(int catastrophicFailureChance);
+
+	vector<Upgrade*> getUpgrades();
 };

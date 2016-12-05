@@ -1,31 +1,57 @@
-#include "production.h"
+#include "Production.h"
 
-Upgrade::Upgrade(long int upgradeCppmAdditive, double upgradeCppmMultiplicative, long int upgradeRiskFactorAdditive, double upgradeRiskFactorMultiplicative, long int upgradeSellPriceAdditive, double upgradeSellPriceMultiplicative, long int upgradeProductionCostAdditive, double upgradeProductionCostMultiplicative, string upgradeName, long int upgradeCost, string upgradeDescription)
+long int Production::calculateMonthlyProfit()
 {
-	upgradeCppmAdditive = 0;
-	upgradeCppmMultiplicative = 0;
+	int monthlyProfit = 0;
 
-	upgradeRiskFactorAdditive = 0;
-	upgradeRiskFactorMultiplicative = 0;
+	monthlyProfit = (cookiesProduced * cookieSellValue) - productionCost;
 
-	upgradeSellPriceAdditive = 0;
-	upgradeSellPriceMultiplicative = 0;
-
-	upgradeProductionCostAdditive = 0;
-	upgradeProductionCostMultiplicative = 0;
-
-	upgradeName = "";
-
-	upgradeCost = 0;
-
-	upgradeDescription = "";
+	return monthlyProfit;
 }
 
-long int Upgrade::activeUpgrade(ProductionMethod : Production *)
+void Production::checkForFailure()
 {
+	int failureCheck;
+	int tempFailure;
+	tempFailure = getCatastrophicFailureChance();
+	if (tempFailure >= 10) {
+		failureCheck = 1;
+	}
+	else {
+		failureCheck = 0;
+	}
+}
+
+long int Production::purchaseProduction(long int currentFunds)
+{
+	int tempProfit;
+	tempProfit = calculateMonthlyProfit();
+
+	if (tempProfit >= getProductionCost()) {
+		//purchase the type of production
+	}
+	else {
+		cout << "Sorry you are unable to purchase that. Please make more cookies." << endl;
+	}
+
+	//hand back the modified amount of profit
+	
 	return 0;
 }
 
-void Upgrade::displayUpgradeParameters()
+long int Production::purchaseUpgrade(int upgradeIndex, long int currentFunds)
 {
+	int tempProfit;
+	tempProfit = calculateMonthlyProfit();
+
+	if (tempProfit >= upgradeCost()) {
+		//purchase the type of production
+	}
+	else {
+		cout << "Sorry you are unable to purchase that. Please make more cookies." << endl;
+	}
+
+	//hand back the modified amount of profit
+
+	return 0;
 }
