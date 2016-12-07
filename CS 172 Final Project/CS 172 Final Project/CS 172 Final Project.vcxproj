@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Menu.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DCD92D99-CA98-4FE9-9453-78D7D8CA95CA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
