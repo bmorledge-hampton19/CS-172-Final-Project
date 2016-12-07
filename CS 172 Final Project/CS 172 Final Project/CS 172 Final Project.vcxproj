@@ -24,6 +24,7 @@
     <ClCompile Include="upgrade.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="upgrade.h" />
     <ClInclude Include="Production.h" />
   </ItemGroup>
