@@ -15,7 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Menu.h">
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="upgrade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Production.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Production.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="upgrade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
