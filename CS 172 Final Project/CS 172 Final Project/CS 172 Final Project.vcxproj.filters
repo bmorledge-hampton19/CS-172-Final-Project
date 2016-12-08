@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Upgrade Class Derivatives">
+      <UniqueIdentifier>{efd3be47-72ef-4373-af38-408ea0b59de5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Upgrade Class Derivatives">
+      <UniqueIdentifier>{a4b22707-b45c-4216-be96-7dd2e79d3350}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="upgrade.h">
@@ -26,6 +32,27 @@
     </ClInclude>
     <ClInclude Include="HighScoreTable.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Owner.h">
+      <Filter>Header Files\Upgrade Class Derivatives</Filter>
+    </ClInclude>
+    <ClInclude Include="Bakers.h">
+      <Filter>Header Files\Upgrade Class Derivatives</Filter>
+    </ClInclude>
+    <ClInclude Include="AutomatedOvens.h">
+      <Filter>Header Files\Upgrade Class Derivatives</Filter>
+    </ClInclude>
+    <ClInclude Include="CookieMassProduction.h">
+      <Filter>Header Files\Upgrade Class Derivatives</Filter>
+    </ClInclude>
+    <ClInclude Include="BreedableCookies.h">
+      <Filter>Header Files\Upgrade Class Derivatives</Filter>
+    </ClInclude>
+    <ClInclude Include="SentientCookies.h">
+      <Filter>Header Files\Upgrade Class Derivatives</Filter>
+    </ClInclude>
+    <ClInclude Include="CookieTimeLords.h">
+      <Filter>Header Files\Upgrade Class Derivatives</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

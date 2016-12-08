@@ -26,8 +26,15 @@
     <ClCompile Include="upgrade.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AutomatedOvens.h" />
+    <ClInclude Include="Bakers.h" />
+    <ClInclude Include="BreedableCookies.h" />
+    <ClInclude Include="CookieMassProduction.h" />
+    <ClInclude Include="CookieTimeLords.h" />
     <ClInclude Include="HighScoreTable.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Owner.h" />
+    <ClInclude Include="SentientCookies.h" />
     <ClInclude Include="upgrade.h" />
     <ClInclude Include="Production.h" />
   </ItemGroup>
