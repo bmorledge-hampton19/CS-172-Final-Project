@@ -11,7 +11,7 @@ protected:
 	long int cookieSellValue;
 	long int productionCost;
 	int catastrophicFailureChance;
-	vector<Upgrade*> upgrades;
+	vector<Upgrade*> * upgrades = new vector<Upgrade*>;
 	bool activated;
 	long int initialCost;
 
@@ -44,5 +44,5 @@ public:
 
 	void setCatastrophicFailureChance(int catastrophicFailureChance);
 
-	vector<Upgrade*> getUpgrades();
+	vector <Upgrade*> * getUpgrades();
 };
