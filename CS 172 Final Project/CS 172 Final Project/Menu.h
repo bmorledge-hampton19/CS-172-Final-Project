@@ -1,6 +1,8 @@
 #pragma once
 
-// Pre-Processor Directives:
+// Pre-Processor Directives
+#include "production.h"
+#include "HighScoreTable.h"
 #include <vector>
 using namespace std;
 
