@@ -6,7 +6,7 @@ using namespace std;
 
 // A derivative of the Production class.
 //
-class CookieMassProduction : protected Production {
+class CookieMassProduction : public Production {
 
 public:
 

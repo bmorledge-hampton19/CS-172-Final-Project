@@ -6,7 +6,7 @@ using namespace std;
 
 // A derivative of the Production class.
 //
-class BreedableCookies : protected Production {
+class BreedableCookies : public Production {
 
 public:
 

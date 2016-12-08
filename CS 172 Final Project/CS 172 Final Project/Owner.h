@@ -6,7 +6,7 @@ using namespace std;
 
 // A derivative of the Production class.
 //
-class Owner : protected Production {
+class Owner : public Production {
 
 public:
 
