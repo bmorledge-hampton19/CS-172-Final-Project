@@ -19,10 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AutomatedOvens.cpp" />
+    <ClCompile Include="Bakers.cpp" />
+    <ClCompile Include="BreedableCookies.cpp" />
+    <ClCompile Include="CookieMassProduction.cpp" />
+    <ClCompile Include="CookieTimeLords.cpp" />
     <ClCompile Include="HighScoreTable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Owner.cpp" />
     <ClCompile Include="Production.cpp" />
+    <ClCompile Include="SentientCookies.cpp" />
     <ClCompile Include="upgrade.cpp" />
   </ItemGroup>
   <ItemGroup>

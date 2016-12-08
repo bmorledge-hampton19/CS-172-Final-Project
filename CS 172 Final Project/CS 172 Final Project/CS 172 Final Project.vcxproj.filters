@@ -71,5 +71,26 @@
     <ClCompile Include="HighScoreTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Owner.cpp">
+      <Filter>Source Files\Upgrade Class Derivatives</Filter>
+    </ClCompile>
+    <ClCompile Include="SentientCookies.cpp">
+      <Filter>Source Files\Upgrade Class Derivatives</Filter>
+    </ClCompile>
+    <ClCompile Include="CookieTimeLords.cpp">
+      <Filter>Source Files\Upgrade Class Derivatives</Filter>
+    </ClCompile>
+    <ClCompile Include="CookieMassProduction.cpp">
+      <Filter>Source Files\Upgrade Class Derivatives</Filter>
+    </ClCompile>
+    <ClCompile Include="BreedableCookies.cpp">
+      <Filter>Source Files\Upgrade Class Derivatives</Filter>
+    </ClCompile>
+    <ClCompile Include="Bakers.cpp">
+      <Filter>Source Files\Upgrade Class Derivatives</Filter>
+    </ClCompile>
+    <ClCompile Include="AutomatedOvens.cpp">
+      <Filter>Source Files\Upgrade Class Derivatives</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
