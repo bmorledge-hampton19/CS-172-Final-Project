@@ -46,5 +46,7 @@ public:
 
 	void setCatastrophicFailureChance(int catastrophicFailureChance);
 
+	long int getInitialCost();
+
 	vector <Upgrade*> * getUpgrades();
 };

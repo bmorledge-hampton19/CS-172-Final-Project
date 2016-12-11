@@ -195,7 +195,7 @@ bool Menu::interpretUserInput(char input)
 		if (input > 0 && input <= productionForSale->size()) {
 
 			// Attempt to purchase the given method of production, letting the user know the result of the purchase (success/failure) and purchasing it if necessary.
-			if ((*productionForSale)[input - 1]->getProductionCost() <= playerMoney) {
+			if ((*productionForSale)[input - 1]->getInitialCost() <= playerMoney) {
 				notifications = "You successfully purchased the " + (*productionForSale)[input - 1]->getNameOfProductionType() + " production method.";
 				purchaseProduction(input - 1);
 			}
@@ -264,7 +264,7 @@ bool Menu::interpretUserInput(char input)
 void Menu::purchaseProduction(int productionIndex)
 {
 	// Subtract the cost of the production from the player's funds.
-	playerMoney -= (*productionForSale)[productionIndex]->getProductionCost();
+	playerMoney -= (*productionForSale)[productionIndex]->getInitialCost();
 
 	// Move the production method over to the "purchased" vector and delete it from the "for sale" vector.
 	productionPurchased->push_back((*productionForSale)[productionIndex]);
