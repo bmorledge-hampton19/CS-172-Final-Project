@@ -231,10 +231,7 @@ bool Menu::interpretUserInput(char input)
 			// Attempt to purchase the given upgrade, letting the user know the result of the purchase (success/failure) and activating it if necessary.
 			if ((*upgrade)[input - 1]->getUpgradeCost() <= playerMoney) {
 				notifications = "You successfully purchased the upgrade.";
-				playerMoney -= (*upgrade)[input - 1]->activeUpgrade((*productionPurchased)[currentProductionAccessing]);
-
-				// Remove the upgrade from the list of available upgrades.
-				upgrade->erase(upgrade->begin() + input - 1);
+				purchaseUpgrade(input - 1);
 			}
 			else {
 				notifications = "You do not have enough money to purchase the upgrade.";
@@ -271,6 +268,19 @@ void Menu::purchaseProduction(int productionIndex)
 	// Move the production method over to the "purchased" vector and delete it from the "for sale" vector.
 	productionPurchased->push_back((*productionForSale)[productionIndex]);
 	productionForSale->erase(productionForSale->begin() + productionIndex);
+}
+
+void Menu::purchaseUpgrade(int upgradeIndex)
+{
+	// Create a temporary pointer to the Upgrade vector being accessed. (Just for convenience)
+	vector <Upgrade*> * upgrade = (*productionPurchased)[currentProductionAccessing]->getUpgrades();
+
+	// Subtract the cost of the production from the player's funds, and activate it.
+	playerMoney -= (*upgrade)[upgradeIndex]->activeUpgrade((*productionPurchased)[currentProductionAccessing]);
+
+	// Remove the upgrade from the list of available upgrades.
+	upgrade->erase(upgrade->begin() + upgradeIndex);
+
 }
 
 void Menu::calculateMonthlyOutcome()
