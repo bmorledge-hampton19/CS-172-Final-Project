@@ -5,14 +5,21 @@ Owner::Owner()
     cookiesProduced = 700;
     cookieSellValue = 1;
     productionCost = 500;
-    catastrophicFailureChance = 15;
+    catastrophicFailureChance = 5;
     initializeUpgrades();
     initialCost = 0;
 }
 
 void Owner::initializeUpgrades()
 {
-    Upgrade* Upgrade1 = new Upgrade(225, 0, 
+	upgrades->push_back(new Upgrade(225, 0, 0, 0, 0, 0, 50, 0, "Electric mixer", 100, "Increases overall cookie production by 225.  Slightly increases cost of production."));
+	upgrades->push_back(new Upgrade(0, 0, 0, 0, 2, 0, 0, 2, "Exotic ingredients", 400, "Increases sell price of cookies by 2, but doubles production cost."));
+	upgrades->push_back(new Upgrade(0, 2, 2, 0, 0, 0, 0, 0, "Faster ovens", 1000, "Doubles both cookie production and risk factor."));
+	upgrades->push_back(new Upgrade(0, 0, -5, 0, 0, 0, 0, 0, "Asbestos oven mitts", 2000, "Moderately decreases risk factor (as well as your lifespan)"));
+	upgrades->push_back(new Upgrade(0, 2, 0, 0, 0, 0, 1.25, 0, "Moar Ovens", 4000, "Doubles production and increases cost of production by 25%"));
+	upgrades->push_back(new Upgrade(0, 2, 0, 0, 0, 0, 1.25, 0, "Even MOAR Ovens", 8000, "Doubles production once more and increases cost of production by 25%"));
+	upgrades->push_back(new Upgrade(0, 2, 0, 0, 0, 0, 1.25, 0, "ALL OF THE OVENS", 16000, "Doubles production yet again and increases cost of production by 25%"));
+
 }
 
 string Owner::checkForFailure()
@@ -22,10 +29,10 @@ string Owner::checkForFailure()
 	if (rand() % 100 < catastrophicFailureChance) {
 		
 		// Incur the effects of the failure.
-
+		cookiesProduced -= 100;
 
 		// Let the user know what happened.
-		return "";
+		return "You burned your hand on a hot cookie sheet. Your cookie production has been reduced by 100 cppm.";
 
 	}
 	else return "";
