@@ -21,6 +21,9 @@ public:
 	// The default constructor which merely calls the restoreTable function.
 	HighScoreTable();
 
+	// Prints the contents of the high score table to the screen.
+	void displayTable();
+
 	// Checks to see if a given score is better than any on the table.
 	bool doesScoreQualify(int months);
 
