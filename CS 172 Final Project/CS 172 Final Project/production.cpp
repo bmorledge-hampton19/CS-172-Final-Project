@@ -67,5 +67,5 @@ void Production::setCatastrophicFailureChance(int catastrophicFailureChance)
 
 vector<Upgrade*>* Production::getUpgrades()
 {
-	return Upgrades*;
+	return upgrades;
 }
