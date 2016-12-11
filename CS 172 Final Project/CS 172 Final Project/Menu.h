@@ -4,6 +4,7 @@
 #include "production.h"
 #include "HighScoreTable.h"
 #include <vector>
+#include <string>
 using namespace std;
 
 // A class for handling all of the user input and text being displayed to the user.
@@ -41,6 +42,9 @@ private:
 
 	// Keeps track of how many months have passed since the beginning of the game.
 	int monthsPassed;
+
+	// Text displayed at the top of a menu to notify the user of the results of recent events.
+	string notifications;
 
 public:
 
