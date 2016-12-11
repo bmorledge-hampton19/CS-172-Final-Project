@@ -8,7 +8,7 @@ void CookieMassProduction::initializeUpgrades()
 {
 }
 
-void CookieMassProduction::checkForFailure()
+string CookieMassProduction::checkForFailure()
 {
 }
 

@@ -8,7 +8,7 @@ void Owner::initializeUpgrades()
 {
 }
 
-void Owner::checkForFailure()
+string Owner::checkForFailure()
 {
 }
 

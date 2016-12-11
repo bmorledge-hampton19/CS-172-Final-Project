@@ -19,7 +19,7 @@ public:
 
 	// Checks to see if catastrophic failure occured.
 	//
-	virtual void checkForFailure();
+	virtual string checkForFailure();
 
 	// Returns the name of the class.
 	virtual string getNameOfProductionType();

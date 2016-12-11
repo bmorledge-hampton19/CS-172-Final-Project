@@ -8,7 +8,7 @@ void AutomatedOvens::initializeUpgrades()
 {
 }
 
-void AutomatedOvens::checkForFailure()
+string AutomatedOvens::checkForFailure()
 {
 }
 

@@ -8,7 +8,7 @@ void BreedableCookies::initializeUpgrades()
 {
 }
 
-void BreedableCookies::checkForFailure()
+string BreedableCookies::checkForFailure()
 {
 }
 

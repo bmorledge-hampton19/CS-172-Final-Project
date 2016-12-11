@@ -8,7 +8,7 @@ void CookieTimeLords::initializeUpgrades()
 {
 }
 
-void CookieTimeLords::checkForFailure()
+string CookieTimeLords::checkForFailure()
 {
 }
 
