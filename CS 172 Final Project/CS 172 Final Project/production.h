@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
+#include <string>
 #include "upgrade.h"
 using namespace std;
 
@@ -18,7 +19,7 @@ protected:
 public:
 	long int calculateMonthlyProfit();
 
-	virtual void checkForFailure();
+	virtual string checkForFailure();
 
 	long int purchaseProduction(long int currentFunds);
 

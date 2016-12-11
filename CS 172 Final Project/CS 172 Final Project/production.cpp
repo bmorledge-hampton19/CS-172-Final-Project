@@ -9,7 +9,7 @@ long int Production::calculateMonthlyProfit()
 	return monthlyProfit;
 }
 
-void Production::checkForFailure()
+string Production::checkForFailure()
 {
 	int failureCheck;
 	int tempFailure;
@@ -54,4 +54,8 @@ long int Production::purchaseUpgrade(int upgradeIndex, long int currentFunds)
 	//hand back the modified amount of profit
 
 	return 0;
+}
+
+void Production::initializeUpgrades()
+{
 }
