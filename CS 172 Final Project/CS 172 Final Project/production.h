@@ -13,16 +13,16 @@ class Upgrade;
 
 class Production {
 protected:
-	long int cookiesProduced;
-	long int cookieSellValue;
-	long int productionCost;
+	long long int cookiesProduced;
+	long long int cookieSellValue;
+	long long int productionCost;
 	int catastrophicFailureChance;
 	vector <Upgrade*> * upgrades = new vector <Upgrade*>;
 	bool activated;
-	long int initialCost;
+	long long int initialCost;
 
 public:
-	long int calculateMonthlyProfit();
+	long long int calculateMonthlyProfit();
 
 	virtual string checkForFailure();
 
@@ -30,23 +30,23 @@ public:
 
 	virtual string getNameOfProductionType();
 
-	long int getCookiesProduced();
+	long long int getCookiesProduced();
 
-	void setCookiesProduced(long int cookiesProduced);
+	void setCookiesProduced(long long int cookiesProduced);
 
-	long int getCookieSellValue();
+	long long int getCookieSellValue();
 
-	void setCookieSellValue(long int cookieSellValue);
+	void setCookieSellValue(long long int cookieSellValue);
 
-	long int getProductionCost();
+	long long int getProductionCost();
 
-	void setProductionCost(long int productionCost);
+	void setProductionCost(long long int productionCost);
 
 	int getCatastrophicFailureChance();
 
 	void setCatastrophicFailureChance(int catastrophicFailureChance);
 
-	long int getInitialCost();
+	long long int getInitialCost();
 
 	vector <Upgrade*> * getUpgrades();
 };

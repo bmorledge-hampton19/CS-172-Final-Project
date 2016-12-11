@@ -1,6 +1,6 @@
 #include "Production.h"
 
-long int Production::calculateMonthlyProfit()
+long long int Production::calculateMonthlyProfit()
 {
 	int monthlyProfit = 0;
 
@@ -24,33 +24,33 @@ string Production::getNameOfProductionType()
 	return "";
 }
 
-long int Production::getCookiesProduced()
+long long int Production::getCookiesProduced()
 {
 	return cookiesProduced;
 }
 
-void Production::setCookiesProduced(long int cookiesProduced)
+void Production::setCookiesProduced(long long int cookiesProduced)
 {
 	this->cookiesProduced = cookiesProduced;
 }
 
-long int Production::getCookieSellValue()
+long long int Production::getCookieSellValue()
 {
 	return cookieSellValue;
 }
 
-void Production::setCookieSellValue(long int cookieSellValue)
+void Production::setCookieSellValue(long long int cookieSellValue)
 {
 	this->cookiesProduced = cookiesProduced;
 
 }
 
-long int Production::getProductionCost()
+long long int Production::getProductionCost()
 {
 	return productionCost;
 }
 
-void Production::setProductionCost(long int productionCost)
+void Production::setProductionCost(long long int productionCost)
 {
 	this->productionCost = productionCost;
 }
@@ -65,7 +65,7 @@ void Production::setCatastrophicFailureChance(int catastrophicFailureChance)
     this->catastrophicFailureChance = catastrophicFailureChance;
 }
 
-long int Production::getInitialCost()
+long long int Production::getInitialCost()
 {
 	return initialCost;
 }

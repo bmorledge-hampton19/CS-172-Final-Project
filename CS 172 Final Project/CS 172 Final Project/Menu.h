@@ -23,7 +23,7 @@ private:
 	long long int playerMoney;
 
 	// Keeps track of the cookies produced each month.
-	long int currentCppm;
+	long long int currentCppm;
 
 	// Keeps track of the current production object being accessed for purchasing upgrades.
 	int currentProductionAccessing;
