@@ -21,11 +21,16 @@ Upgrade::Upgrade(long int upgradeCppmAdditive, double upgradeCppmMultiplicative,
 	upgradeDescription = "";
 }
 
-long int Upgrade::activeUpgrade(ProductionMethod : Production *)
+long int Upgrade::activeUpgrade(Production * productionMethod)
 {
 	return 0;
 }
 
 void Upgrade::displayUpgradeParameters()
 {
+}
+
+long int Upgrade::getUpgradeCost()
+{
+	return upgradeCost;
 }
