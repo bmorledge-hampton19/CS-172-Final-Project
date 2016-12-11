@@ -14,16 +14,24 @@ Upgrade::Upgrade(long int upgradeCppmAdditive, double upgradeCppmMultiplicative,
 	this->upgradeProductionCostAdditive = upgradeProductionCostAdditive;
 	this->upgradeProductionCostMultiplicative = upgradeProductionCostMultiplicative;
 
-	upgradeName = "";
+	this->upgradeName = upgradeName;
 
-	upgradeCost = 0;
+	this->upgradeCost = upgradeCost;
 
-	upgradeDescription = "";
+	this->upgradeDescription = upgradeDescription;
 }
 
 long int Upgrade::activeUpgrade(Production * productionMethod)
 {
-	return 0;
+    productionMethod->setCookieProduction(productionMethod->getCookiesProduced()*upgradeCppmMultiplicative+upgradeCppmAdditive)
+    
+    productionMethod->setCookieSellValue(productionMethod->getCookiesSellValue()*upgradeSellPriceMultiplicative+upgradeSellPriceAdditive)
+    
+    productionMethod->setProductionCost(productionMethod->getProductionCost()*upgradeProductionCostMultiplicative+upgradeProductionCostAdditive)
+    
+    productionMethod->setCatastrophicFailureChance(productionMethod->getCatastrophicFailureChance()*upgradeRiskFactorMultiplicative+upgradeRiskFactorAdditive)
+    
+	return upgradeCost;
 }
 
 void Upgrade::displayUpgradeParameters()
