@@ -5,6 +5,7 @@
 #include "HighScoreTable.h"
 #include <vector>
 #include <string>
+#include <sstream>
 using namespace std;
 
 // A class for handling all of the user input and text being displayed to the user.
@@ -44,7 +45,7 @@ private:
 	int monthsPassed;
 
 	// Text displayed at the top of a menu to notify the user of the results of recent events.
-	string notifications;
+	ostringstream* notifications = new ostringstream;
 
 public:
 
