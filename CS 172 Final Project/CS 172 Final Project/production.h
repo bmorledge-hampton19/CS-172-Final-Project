@@ -1,11 +1,18 @@
 #pragma once
+
+#include "upgrade.h"
 #include <iostream>
 #include <cstring>
 #include <vector>
 #include <string>
+//<<<<<<< HEAD
 #include "upgrade.h"
 #include "Menu.h"
+//=======
+//>>>>>>> 941928a37621e3279a44b6f672a18c9cf75b4f99
 using namespace std;
+
+class Upgrade;
 
 class Production {
 protected:
@@ -13,7 +20,7 @@ protected:
 	long int cookieSellValue;
 	long int productionCost;
 	int catastrophicFailureChance;
-	vector<Upgrade*> * upgrades = new vector<Upgrade*>;
+	vector <Upgrade*> * upgrades = new vector <Upgrade*>;
 	bool activated;
 	long int initialCost;
 

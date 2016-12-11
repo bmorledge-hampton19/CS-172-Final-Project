@@ -34,7 +34,8 @@ void Menu::drawMenu()
 
 	// Before displaying a specific menu, display the most recent notifications and the player's current funds.  Also, reset the notifications string.
 	cout << notifications << endl << endl;
-	cout << "Funds: $" << playerMoney << endl;
+	cout << "Your total funds: $" << playerMoney << endl;
+	cout << "Last month you produced " << currentCppm << " cookies.";
 	cout << "--------------------------------------------------" << endl;
 	notifications = "";
 
@@ -285,5 +286,39 @@ void Menu::purchaseUpgrade(int upgradeIndex)
 
 void Menu::calculateMonthlyOutcome()
 {
+
+	// An integer to keep track of this month's profit.
+	long long int monthlyProfit = 0;
+
+	// Reset the cookies produced per month counter to 0.
+	currentCppm = 0;
+
+	// Start generating the notification string. (It will end up being multiple lines long.)
+	notifications = "This month's results:\n\n";
+
+	// Run through each production method, generating profit, adding to the total number of cookies produced and checking for catastrophic failure.
+	for (int i = 0; i < productionPurchased->size(); i++) {
+
+		// Add this production method's parameters to the two counter variables.
+		currentCppm += (*productionPurchased)[i]->getCookiesProduced();
+		monthlyProfit += (*productionPurchased)[i]->calculateMonthlyProfit();
+
+		// Add the results to the notifications.
+		notifications += "Your " + (*productionPurchased)[i]->getNameOfProductionType() + " produced ";
+		notifications += (*productionPurchased)[i]->getCookiesProduced() + " cookies which sold for $";
+		notifications += (*productionPurchased)[i]->calculateMonthlyProfit() + ".\n";
+		
+		// Check for catastrophic failure, adding its information to notifications if necesarry.
+		notifications += (*productionPurchased)[i]->checkForFailure();
+
+	}
+
+	// Add the totals to notifications.
+	notifications += "\nIn total, you produced "; 
+	notifications += currentCppm + " cookies which sold for $";
+	notifications += monthlyProfit + ".";
+
+	// Update playerMoney
+	playerMoney += monthlyProfit;
 
 }

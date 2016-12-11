@@ -44,7 +44,7 @@ long int Production::purchaseUpgrade(int upgradeIndex, long int currentFunds)
 	int tempProfit;
 	tempProfit = calculateMonthlyProfit();
 
-	if (tempProfit >= upgradeCost()) {
+	if (tempProfit >= (*upgrades)[upgradeIndex]->getUpgradeCost()) {
 		//purchase the type of production
 	}
 	else {
@@ -63,4 +63,15 @@ void Production::initializeUpgrades()
 string Production::getNameOfProductionType()
 {
 	return  ;
+}
+
+long int Production::getCookiesProduced()
+{
+	return cookiesProduced;
+}
+
+void Production::setCookiesProduced(long int cookiesProduced)
+{
+	cookiesProduced  = production *
+
 }

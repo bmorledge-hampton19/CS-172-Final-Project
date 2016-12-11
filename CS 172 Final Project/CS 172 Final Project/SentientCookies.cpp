@@ -8,7 +8,7 @@ void SentientCookies::initializeUpgrades()
 {
 }
 
-void SentientCookies::checkForFailure()
+string SentientCookies::checkForFailure()
 {
 }
 

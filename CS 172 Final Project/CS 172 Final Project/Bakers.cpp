@@ -8,7 +8,7 @@ void Bakers::initializeUpgrades()
 {
 }
 
-void Bakers::checkForFailure()
+string Bakers::checkForFailure()
 {
 }
 

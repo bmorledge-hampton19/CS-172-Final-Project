@@ -1,11 +1,17 @@
 #pragma once
 
+#include "Production.h"
 #include <iostream>
 #include <cstring>
 #include <vector>
+<<<<<<< HEAD
 #include "production.h"
 #include "Menu.h"
+=======
+>>>>>>> 941928a37621e3279a44b6f672a18c9cf75b4f99
 using namespace std;
+
+class Production;
 
 class Upgrade {
 
