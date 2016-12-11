@@ -1,6 +1,5 @@
 // Pre-Processor Directives
 #include "Menu.h"
-#include "production.h"
 #include "Owner.h"
 #include "Bakers.h"
 #include "AutomatedOvens.h"
@@ -32,6 +31,14 @@ Menu::Menu()
 
 void Menu::drawMenu()
 {
+
+	// Before displaying a specific menu, display the most recent notifications and the player's current funds.  Also, reset the notifications string.
+	cout << notifications << endl << endl;
+	cout << "Funds: $" << playerMoney << endl;
+	cout << "--------------------------------------------------" << endl;
+	notifications = "";
+
+
 	// Determine which menu to draw based on the menu state.
 	if (menuState == 0) {
 
@@ -46,6 +53,7 @@ void Menu::drawMenu()
 		cout << "--------------------------------------------" << endl;
 
 	}
+
 	else if (menuState == 1) {
 
 		// Have the user choose a production method to purchase.
@@ -53,13 +61,14 @@ void Menu::drawMenu()
 		
 		// Display all of the production methods available for purchase along with their prices.
 		for (int i = 0; i < (int)productionForSale->size(); i++) {
-			cout << i << ". " << (*productionForSale)[i]->getNameOfProductionType() << " - $" << (*productionForSale)[i]->getProductionCost() << endl;
+			cout << (i +1) << ". " << (*productionForSale)[i]->getNameOfProductionType() << " - $" << (*productionForSale)[i]->getProductionCost() << endl;
 		}
 
 		// Also give the user the option to return to the main menu.
 		cout << "0. Return to the main menu" << endl;
 
 	}
+
 	else if (menuState == 2) {
 
 		// Have the user choose a production method to view upgrades from.
@@ -67,7 +76,7 @@ void Menu::drawMenu()
 
 		// Display all of the purchased production methods.
 		for (int i = 0; i < (int)productionPurchased->size(); i++) {
-			cout << i << ". " << (*productionPurchased)[i]->getNameOfProductionType() << endl;
+			cout << (i+1) << ". " << (*productionPurchased)[i]->getNameOfProductionType() << endl;
 		}
 
 		// Also give the user the option to return to the main menu.
@@ -85,7 +94,7 @@ void Menu::drawMenu()
 
 		// Display all of the available upgrades, along with a description of each of their effects and prices.
 		for (int i = 0; i < (int)upgrade->size(); i++) {
-			cout << i << ". "; 
+			cout << (i+1) << ". "; 
 			(*upgrade)[i]->displayUpgradeParameters();
 			cout << endl;
 		}
@@ -102,7 +111,7 @@ void Menu::drawMenu()
 
 		// Display all of the purchased production methods.
 		for (int i = 0; i < (int)productionPurchased->size(); i++) {
-			cout << i << ". " << (*productionPurchased)[i]->getNameOfProductionType() << endl;
+			cout << (i+1) << ". " << (*productionPurchased)[i]->getNameOfProductionType() << endl;
 		}
 
 		// Also give the user the option to return to the main menu.
@@ -143,13 +152,128 @@ void Menu::drawMenu()
 
 bool Menu::interpretUserInput(char input)
 {
+
+	// First, if the user's input is 0, transport them back to the main menu.
+	if (input == 0) {
+		menuState = 0;
+		return true;
+	}
+
+	// Otherwise, check the current "menuState" to determine how to handle input.
+	else if (menuState == 0) {
+
+		// Switch to the menu for purchasing production methods if the first option was chosen.
+		if (input == 1) {
+			menuState = 1;
+			return true;
+		}
+
+		// Switch to the menu for choosing a production method to purchase upgrades from.
+		else if (input == 2) {
+			menuState = 2;
+			return true;
+		}
+
+		// Switch to the menu for choosing a production method to view statistics for.
+		else if (input == 3) {
+			menuState = 4;
+			return true;
+		}
+
+		// Advance to the next month.
+		else if (input == 4) {
+			calculateMonthlyOutcome();
+			return true;
+		}
+
+	}
+
+	else if (menuState == 1) {
+
+		// Check to see if the user's input falls within the range of possible values, given the number of production methods available for purchase.
+		if (input > 0 && input <= productionForSale->size()) {
+
+			// Attempt to purchase the given method of production, letting the user know the result of the purchase (success/failure) and purchasing it if necessary.
+			if ((*productionForSale)[input - 1]->getProductionCost() <= playerMoney) {
+				notifications = "You successfully purchased the " + (*productionForSale)[input - 1]->getNameOfProductionType() + " production method.";
+				purchaseProduction(input - 1);
+			}
+			else {
+				notifications = "You do not have enough money to purchase the " + (*productionForSale)[input - 1]->getNameOfProductionType() + " production method.";
+			}
+			return true;
+
+		}
+
+	}
+
+	else if (menuState == 2) {
+
+		// Check to see if the user's input falls within the range of possible values, given the number of purchased production methods.
+		if (input > 0 && input <= productionPurchased->size()) {
+
+			// Change the currentProductionAccessing variable according to the user's input, and change the menu state to choose an upgrade from the selected production method.
+			currentProductionAccessing = (input - 1);
+			menuState = 3;
+			return true;
+		}
+
+	}
+
+	else if (menuState == 3) {
+
+		// Create a temporary pointer to the Upgrade vector being accessed. (Just for convenience)
+		vector <Upgrade*> * upgrade = (*productionPurchased)[currentProductionAccessing]->getUpgrades();
+
+		// Check to see if the user's input falls within the range of possible values, given the number of upgrades available for purchase.
+		if (input > 0 && input <= upgrade->size()) {
+
+			// Attempt to purchase the given upgrade, letting the user know the result of the purchase (success/failure) and activating it if necessary.
+			if ((*upgrade)[input - 1]->getUpgradeCost() <= playerMoney) {
+				notifications = "You successfully purchased the upgrade.";
+				playerMoney -= (*upgrade)[input - 1]->activeUpgrade((*productionPurchased)[currentProductionAccessing]);
+
+				// Remove the upgrade from the list of available upgrades.
+				upgrade->erase(upgrade->begin() + input - 1);
+			}
+			else {
+				notifications = "You do not have enough money to purchase the upgrade.";
+			}
+			return true;
+			
+		}
+
+	}
+
+	else if (menuState == 4) {
+
+		// Check to see if the user's input falls within the range of possible values, given the number of purchased production methods.
+		if (input > 0 && input <= productionPurchased->size()) {
+
+			// Change the currentProductionAccessing variable according to the user's input, and change the menu state to view stats for the selected production method.
+			currentProductionAccessing = (input - 1);
+			menuState = 5;
+			return true;
+		}
+
+	}
+
+	// If none of the checks determined that the input was valid, return false.
 	return false;
+
 }
 
 void Menu::purchaseProduction(int productionIndex)
 {
+	// Subtract the cost of the production from the player's funds.
+	playerMoney -= (*productionForSale)[productionIndex]->getProductionCost();
+
+	// Move the production method over to the "purchased" vector and delete it from the "for sale" vector.
+	productionPurchased->push_back((*productionForSale)[productionIndex]);
+	productionForSale->erase(productionForSale->begin() + productionIndex);
 }
 
 void Menu::calculateMonthlyOutcome()
 {
+
 }
