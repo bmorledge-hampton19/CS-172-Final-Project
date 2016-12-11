@@ -12,7 +12,7 @@ protected:
 	long int cookieSellValue;
 	long int productionCost;
 	int catastrophicFailureChance;
-	vector<Upgrade*> * upgrades = new vector<Upgrade*>;
+	vector <Upgrade*> * upgrades = new vector <Upgrade*>;
 	bool activated;
 	long int initialCost;
 

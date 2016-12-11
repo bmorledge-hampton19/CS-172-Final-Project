@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
-#include "production.h"
+#include "Production.h"
 using namespace std;
 
 class Upgrade {
