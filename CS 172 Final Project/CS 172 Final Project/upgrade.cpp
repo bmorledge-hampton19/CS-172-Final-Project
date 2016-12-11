@@ -23,13 +23,13 @@ Upgrade::Upgrade(long int upgradeCppmAdditive, double upgradeCppmMultiplicative,
 
 long int Upgrade::activeUpgrade(Production * productionMethod)
 {
-	productionMethod->setCookiesProduced(productionMethod->getCookiesProduced()*upgradeCppmMultiplicative + upgradeCppmAdditive);
+	productionMethod->setCookiesProduced((long)(productionMethod->getCookiesProduced()*upgradeCppmMultiplicative) + upgradeCppmAdditive);
     
-	productionMethod->setCookieSellValue(productionMethod->getCookieSellValue()*upgradeSellPriceMultiplicative + upgradeSellPriceAdditive);
+	productionMethod->setCookieSellValue((long)(productionMethod->getCookieSellValue()*upgradeSellPriceMultiplicative) + upgradeSellPriceAdditive);
     
-	productionMethod->setProductionCost(productionMethod->getProductionCost()*upgradeProductionCostMultiplicative + upgradeProductionCostAdditive);
+	productionMethod->setProductionCost((long)(productionMethod->getProductionCost()*upgradeProductionCostMultiplicative) + upgradeProductionCostAdditive);
     
-	productionMethod->setCatastrophicFailureChance(productionMethod->getCatastrophicFailureChance()*upgradeRiskFactorMultiplicative + upgradeRiskFactorAdditive);
+	productionMethod->setCatastrophicFailureChance((long)(productionMethod->getCatastrophicFailureChance()*upgradeRiskFactorMultiplicative) + upgradeRiskFactorAdditive);
     
 	return upgradeCost;
 }
