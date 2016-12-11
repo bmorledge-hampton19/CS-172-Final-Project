@@ -151,7 +151,7 @@ void Menu::drawMenu()
 
 }
 
-bool Menu::interpretUserInput(char input)
+bool Menu::interpretUserInput(int input)
 {
 
 	// First, if the user's input is 0, transport them back to the main menu.

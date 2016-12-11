@@ -55,7 +55,7 @@ public:
 	void drawMenu();
 
 	// Given the user's input, takes action based on the menu state if the input merits it, and returns true for valid input and false for invalid input.
-	bool interpretUserInput(char input);
+	bool interpretUserInput(int input);
 
 	// Activates a production method, moving it from the ForSale vector to the Purchased vector.
 	void purchaseProduction(int productionIndex);
