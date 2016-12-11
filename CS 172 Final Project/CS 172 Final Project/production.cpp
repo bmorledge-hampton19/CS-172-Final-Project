@@ -22,42 +22,6 @@ string Production::checkForFailure()
 	}
 }
 
-long int Production::purchaseProduction(long int currentFunds)
-{
-	int tempProfit;
-	tempProfit = calculateMonthlyProfit();
-
-	if (tempProfit >= getProductionCost()) {
-		//purchase the type of production
-	}
-	else {
-		cout << "Sorry you are unable to purchase that. Please make more cookies." << endl;
-	}
-
-	//hand back the modified amount of profit
-	
-	return 0;
-}
-
-long int Production::purchaseUpgrade(int upgradeIndex, long int currentFunds)
-{
-	int tempProfit;
-	tempProfit = calculateMonthlyProfit();
-
-	if (tempProfit >= (*upgrades)[upgradeIndex]->getUpgradeCost()) {
-		//purchase the type of upgrade
-		currentFunds = tempProfit - ((*upgrades)[upgradeIndex]->getUpgradeCost());
-	}
-	else {
-		cout << "Sorry you are unable to purchase that. Please make more cookies." << endl;
-	}
-
-	//hand back the modified amount of profit
-	
-
-	return currentFunds;
-}
-
 void Production::initializeUpgrades()
 {
 }
@@ -77,9 +41,7 @@ long int Production::getCookiesProduced()
 //a preprocessor directive to allow me to use what I'm using.
 void Production::setCookiesProduced(long int cookiesProduced)
 {
-	long int cookiesProducedAdditive = (Production * productionMethod) + upgradeCppmAdditive;
-	long int cookiesProducedMultiplicative = (Production* productionMethod) * upgradeCppmMultiplicative;
-	cookiesProduced = cookiesProducedAdditive + cookiesProducedMultiplicative;
+	this->cookiesProduced = cookiesProduced;
 }
 
 long int Production::getCookieSellValue()
@@ -89,9 +51,7 @@ long int Production::getCookieSellValue()
 
 void Production::setCookieSellValue(long int cookieSellValue)
 {
-	long int cookieSellValueAdditive = (Production* productionMethod) + upgradeSellPriceAdditive;
-	long int cookieSellValueMultiplicative = (Production* productionMethod) * upgradeSellPriceMultiplicative;
-	cookieSellValue = cookieSellValueAdditive + cookieSellValueMultiplicative;
+	this->cookiesProduced = cookiesProduced;
 
 }
 
@@ -102,9 +62,7 @@ long int Production::getProductionCost()
 
 void Production::setProductionCost(long int productionCost)
 {
-	long int productionCostAdditive = ;
-	long int productionCostMultiplicative = ;
-	productionCost = productionCostAdditive + productionCostMultiplicative;
+	this->productionCost = productionCost;
 }
 
 int Production::getCatastrophicFailureChance()
@@ -114,9 +72,7 @@ int Production::getCatastrophicFailureChance()
 
 void Production::setCatastrophicFailureChance(int catastrophicFailureChance)
 {
-	long int catastrophicFailureChanceAdditive = (Production* productionMethod) + upgradeRiskFactorAdditive;
-	long int catastrophicFailureChanceMultiplicative = (Production* productionMethod) * upgradeRiskFactorMultiplicative;
-	catastrophicFailureChance = catastrophicFailureChanceAdditive + catastrophicFailureChanceMultiplicative;
+    this->catastrophicFailureChance = catastrophicFailureChance;
 }
 
 vector<Upgrade*>* Production::getUpgrades()
