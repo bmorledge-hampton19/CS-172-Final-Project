@@ -28,6 +28,7 @@ long int Upgrade::activeUpgrade(Production * productionMethod)
 
 void Upgrade::displayUpgradeParameters()
 {
+	cout << upgradeName << " $" << upgradeCost << ": " << upgradeDescription;
 }
 
 long int Upgrade::getUpgradeCost()
