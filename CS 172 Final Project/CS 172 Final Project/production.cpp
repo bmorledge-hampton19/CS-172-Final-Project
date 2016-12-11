@@ -41,7 +41,7 @@ long long int Production::getCookieSellValue()
 
 void Production::setCookieSellValue(long long int cookieSellValue)
 {
-	this->cookiesProduced = cookiesProduced;
+	this->cookieSellValue = cookieSellValue;
 
 }
 

@@ -2,7 +2,7 @@
 
 AutomatedOvens::AutomatedOvens()
 {
-    coockiesProduced = 5000;
+    cookiesProduced = 5000;
     cookieSellValue = 8;
     productionCost = 3500;
     catastrophicFailureChance = 20;
@@ -12,9 +12,10 @@ AutomatedOvens::AutomatedOvens()
 
 void AutomatedOvens::initializeUpgrades()
 {
-    upgrades->push_back(new Upgrade(0, 0, 0, 0, 0, 0, 0, 0, "Maintennce Guy", 0, ""))
-    upgrades->push_back(new Upgrade(600, 0, 0, 0, 0, 0, 200, 0, "Cookie Almost-Perfection Sensor", 300000, "increase overall cookie production by 700 cookies, but increases cost of production\n"));
-    upgrades->push_back(new Upgrade(0, 0, 4, 0, 0, 1.35, 100, 0, "Cookie Perfection Detecting Eye Implant", 500000, "Increases the sell price of cookies by 4, but increases the risk factor and slightly increase production cost")
+	upgrades->push_back(new Upgrade(0, 1, 0, 1, 0, 1, 0, 1, "Maintennce Guy", 0, ""));
+    upgrades->push_back(new Upgrade(600, 1, 0, 1, 0, 1, 200, 1, "Cookie Almost-Perfection Sensor", 300000, "increase overall cookie production by 700 cookies, but increases cost of production"));
+	upgrades->push_back(new Upgrade(0, 1, 4, 1, 0, 1.35, 100, 1, "Cookie Perfection Detecting Eye Implant", 500000,
+		"Increases the sell price of cookies by 4, but increases the risk factor and slightly increase production cost"));
 }
 
 string AutomatedOvens::checkForFailure()

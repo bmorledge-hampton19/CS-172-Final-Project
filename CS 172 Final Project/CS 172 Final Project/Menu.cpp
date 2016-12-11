@@ -62,7 +62,7 @@ void Menu::drawMenu()
 		
 		// Display all of the production methods available for purchase along with their prices.
 		for (int i = 0; i < (int)productionForSale->size(); i++) {
-			cout << (i +1) << ". " << (*productionForSale)[i]->getNameOfProductionType() << " - $" << (*productionForSale)[i]->getProductionCost() << endl;
+			cout << (i +1) << ". " << (*productionForSale)[i]->getNameOfProductionType() << " - $" << (*productionForSale)[i]->getInitialCost() << endl;
 		}
 
 		// Also give the user the option to return to the main menu.
