@@ -33,11 +33,11 @@ void Menu::drawMenu()
 {
 
 	// Before displaying a specific menu, display the most recent notifications and the player's current funds.  Also, reset the notifications string.
-	cout << notifications << endl << endl;
+	cout << notifications->str() << endl << endl;
 	cout << "Your total funds: $" << playerMoney << endl;
-	cout << "Last month you produced " << currentCppm << " cookies.";
-	cout << "--------------------------------------------------" << endl;
-	notifications = "";
+	cout << "Last month you produced " << currentCppm << " cookies." << endl;
+	cout << "--------------------------------------------" << endl;
+	notifications->str(string());
 
 
 	// Determine which menu to draw based on the menu state.
@@ -196,11 +196,11 @@ bool Menu::interpretUserInput(int input)
 
 			// Attempt to purchase the given method of production, letting the user know the result of the purchase (success/failure) and purchasing it if necessary.
 			if ((*productionForSale)[input - 1]->getInitialCost() <= playerMoney) {
-				notifications = "You successfully purchased the " + (*productionForSale)[input - 1]->getNameOfProductionType() + " production method.";
+				*notifications << "You successfully purchased the " << (*productionForSale)[input - 1]->getNameOfProductionType() << " production method.";
 				purchaseProduction(input - 1);
 			}
 			else {
-				notifications = "You do not have enough money to purchase the " + (*productionForSale)[input - 1]->getNameOfProductionType() + " production method.";
+				*notifications << "You do not have enough money to purchase the " << (*productionForSale)[input - 1]->getNameOfProductionType() << " production method.";
 			}
 			return true;
 
@@ -231,11 +231,11 @@ bool Menu::interpretUserInput(int input)
 
 			// Attempt to purchase the given upgrade, letting the user know the result of the purchase (success/failure) and activating it if necessary.
 			if ((*upgrade)[input - 1]->getUpgradeCost() <= playerMoney) {
-				notifications = "You successfully purchased the upgrade.";
+				*notifications << "You successfully purchased the upgrade.";
 				purchaseUpgrade(input - 1);
 			}
 			else {
-				notifications = "You do not have enough money to purchase the upgrade.";
+				*notifications << "You do not have enough money to purchase the upgrade.";
 			}
 			return true;
 			
@@ -293,8 +293,11 @@ void Menu::calculateMonthlyOutcome()
 	// Reset the cookies produced per month counter to 0.
 	currentCppm = 0;
 
+	// Increment the month counter.
+	monthsPassed++;
+
 	// Start generating the notification string. (It will end up being multiple lines long.)
-	notifications = "This month's results:\n\n";
+	*notifications << "Results of month " << monthsPassed << ":\n\n";
 
 	// Run through each production method, generating profit, adding to the total number of cookies produced and checking for catastrophic failure.
 	for (int i = 0; i < productionPurchased->size(); i++) {
@@ -304,19 +307,16 @@ void Menu::calculateMonthlyOutcome()
 		monthlyProfit += (*productionPurchased)[i]->calculateMonthlyProfit();
 
 		// Add the results to the notifications.
-		notifications += "Your " + (*productionPurchased)[i]->getNameOfProductionType() + " produced ";
-		notifications += (*productionPurchased)[i]->getCookiesProduced() + " cookies which sold for $";
-		notifications += (*productionPurchased)[i]->calculateMonthlyProfit() + ".\n";
+		*notifications << "Your " << (*productionPurchased)[i]->getNameOfProductionType() << " produced " << (*productionPurchased)[i]->getCookiesProduced() << " cookies which sold for $" <<
+			(*productionPurchased)[i]->calculateMonthlyProfit() << ".\n";
 		
 		// Check for catastrophic failure, adding its information to notifications if necesarry.
-		notifications += (*productionPurchased)[i]->checkForFailure();
+		*notifications << (*productionPurchased)[i]->checkForFailure() << "\n";
 
 	}
 
 	// Add the totals to notifications.
-	notifications += "\nIn total, you produced "; 
-	notifications += currentCppm + " cookies which sold for $";
-	notifications += monthlyProfit + ".";
+	*notifications << "In total, you produced " << currentCppm << " cookies which sold for $" << monthlyProfit << ".";
 
 	// Update playerMoney
 	playerMoney += monthlyProfit;
