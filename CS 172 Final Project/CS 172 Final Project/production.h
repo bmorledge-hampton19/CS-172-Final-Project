@@ -1,10 +1,13 @@
 #pragma once
+
+#include "upgrade.h"
 #include <iostream>
 #include <cstring>
 #include <vector>
 #include <string>
-#include "upgrade.h"
 using namespace std;
+
+class Upgrade;
 
 class Production {
 protected:

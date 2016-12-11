@@ -1,10 +1,12 @@
 #pragma once
 
+#include "Production.h"
 #include <iostream>
 #include <cstring>
 #include <vector>
-#include "Production.h"
 using namespace std;
+
+class Production;
 
 class Upgrade {
 

@@ -44,7 +44,7 @@ long int Production::purchaseUpgrade(int upgradeIndex, long int currentFunds)
 	int tempProfit;
 	tempProfit = calculateMonthlyProfit();
 
-	if (tempProfit >= upgradeCost()) {
+	if (tempProfit >= (*upgrades)[upgradeIndex]->getUpgradeCost()) {
 		//purchase the type of production
 	}
 	else {
