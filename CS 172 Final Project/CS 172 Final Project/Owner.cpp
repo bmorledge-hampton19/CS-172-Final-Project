@@ -32,7 +32,7 @@ string Owner::checkForFailure()
 		cookiesProduced -= 100;
 
 		// Let the user know what happened.
-		return "You burned your hand on a hot cookie sheet. Your cookie production has been reduced by 100 cppm.";
+        return "You burned your hand on a hot cookie sheet. Your cookie production has been reduced by 100 cppm.\n";
 
 	}
 	else return "";
