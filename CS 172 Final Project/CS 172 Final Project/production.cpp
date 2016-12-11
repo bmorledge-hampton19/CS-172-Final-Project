@@ -65,7 +65,12 @@ void Production::setCatastrophicFailureChance(int catastrophicFailureChance)
     this->catastrophicFailureChance = catastrophicFailureChance;
 }
 
+long int Production::getInitialCost()
+{
+	return initialCost;
+}
+
 vector<Upgrade*>* Production::getUpgrades()
 {
-	return Upgrades*;
+	return upgrades;
 }
