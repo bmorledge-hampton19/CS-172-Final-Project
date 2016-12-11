@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <cstdlib>
 using namespace std;
 
 class Upgrade;
@@ -24,10 +25,6 @@ public:
 	long int calculateMonthlyProfit();
 
 	virtual string checkForFailure();
-
-	long int purchaseProduction(long int currentFunds);
-
-	long int purchaseUpgrade(int upgradeIndex, long int currentFunds);
 
 	virtual void initializeUpgrades();
 
