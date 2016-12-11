@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "upgrade.h"
+#include "Menu.h"
 using namespace std;
 
 class Production {

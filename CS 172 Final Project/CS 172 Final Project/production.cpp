@@ -59,3 +59,8 @@ long int Production::purchaseUpgrade(int upgradeIndex, long int currentFunds)
 void Production::initializeUpgrades()
 {
 }
+
+string Production::getNameOfProductionType()
+{
+	return  ;
+}
