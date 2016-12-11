@@ -60,6 +60,9 @@ public:
 	// Activates a production method, moving it from the ForSale vector to the Purchased vector.
 	void purchaseProduction(int productionIndex);
 
+	// Activates an upgrade, applying its affects to its production method and removing it from its production method's upgrades vector.
+	void purchaseUpgrade(int upgradeIndex);
+
 	// Determine the results of a month based on each of the production method's parameters.
 	void calculateMonthlyOutcome();
 
