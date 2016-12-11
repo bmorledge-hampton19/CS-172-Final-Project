@@ -2,17 +2,17 @@
 
 Upgrade::Upgrade(long int upgradeCppmAdditive, double upgradeCppmMultiplicative, long int upgradeRiskFactorAdditive, double upgradeRiskFactorMultiplicative, long int upgradeSellPriceAdditive, double upgradeSellPriceMultiplicative, long int upgradeProductionCostAdditive, double upgradeProductionCostMultiplicative, string upgradeName, long int upgradeCost, string upgradeDescription)
 {
-	upgradeCppmAdditive = 0;
-	upgradeCppmMultiplicative = 0;
+	this->upgradeCppmAdditive = upgradeCppmAdditive;
+	this->upgradeCppmMultiplicative = upgradeCppmMultiplicative;
 
-	upgradeRiskFactorAdditive = 0;
-	upgradeRiskFactorMultiplicative = 0;
+	this->upgradeRiskFactorAdditive = upgradeRiskFactorAdditive;
+	this->upgradeRiskFactorMultiplicative = upgradeRiskFactorMultiplicative;
 
-	upgradeSellPriceAdditive = 0;
-	upgradeSellPriceMultiplicative = 0;
+	this->upgradeSellPriceAdditive = upgradeSellPriceAdditive;
+	this->upgradeSellPriceMultiplicative = upgradeSellPriceMultiplicative;
 
-	upgradeProductionCostAdditive = 0;
-	upgradeProductionCostMultiplicative = 0;
+	this->upgradeProductionCostAdditive = upgradeProductionCostAdditive;
+	this->upgradeProductionCostMultiplicative = upgradeProductionCostMultiplicative;
 
 	upgradeName = "";
 
@@ -28,6 +28,7 @@ long int Upgrade::activeUpgrade(Production * productionMethod)
 
 void Upgrade::displayUpgradeParameters()
 {
+    
 }
 
 long int Upgrade::getUpgradeCost()
