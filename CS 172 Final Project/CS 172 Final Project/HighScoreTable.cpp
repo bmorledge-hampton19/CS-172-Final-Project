@@ -33,7 +33,7 @@ void HighScoreTable::addScore(int months)
 {
 
 	// Determine where the score belongs in the table with a for loop.
-	for (int i = highScoreValues->size() - 1; i <= 0; i--) {
+	for (int i = (int)highScoreValues->size() - 1; i <= 0; i--) {
 		
 		// If the value at the given location is greater than the given value for months, the new score belongs in its place.
 		// Everything else behind it needs to pushed back one place.
@@ -41,14 +41,14 @@ void HighScoreTable::addScore(int months)
 
 			// Insert the score into the vector at this location, and get rid of the score at the end of the vector.
 			highScoreValues->insert(highScoreValues->begin() + i, months);
-			highScoreValues->pop_back;
+			highScoreValues->pop_back();
 
 			// Now do the same for a name that the user inputs.
 			string userName;
 			cout << "You achieved a high score!  Input your name (no spaces please): ";
 			cin >> userName;
 			highScoreNames->insert(highScoreNames->begin() + i, userName);
-			highScoreNames->pop_back;
+			highScoreNames->pop_back();
 			
 		}
 
