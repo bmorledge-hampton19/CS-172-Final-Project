@@ -47,6 +47,18 @@ private:
 	// Text displayed at the top of a menu to notify the user of the results of recent events.
 	ostringstream* notifications = new ostringstream;
 
+	// Activates a production method, moving it from the ForSale vector to the Purchased vector.
+	void purchaseProduction(int productionIndex);
+
+	// Activates an upgrade, applying its affects to its production method and removing it from its production method's upgrades vector.
+	void purchaseUpgrade(int upgradeIndex);
+
+	// Determine the results of a month based on each of the production method's parameters.
+	void calculateMonthlyOutcome();
+
+	// Adds commas to a long number to make it more readable.
+	string neatlyDisplayNumber(long long int number);
+
 public:
 
 	// Constructs the menu object with default values.  See implementation for more info.
@@ -60,14 +72,5 @@ public:
 
 	// Given the user's input, takes action based on the menu state if the input merits it, and returns true for valid input and false for invalid input.
 	bool interpretUserInput(int input);
-
-	// Activates a production method, moving it from the ForSale vector to the Purchased vector.
-	void purchaseProduction(int productionIndex);
-
-	// Activates an upgrade, applying its affects to its production method and removing it from its production method's upgrades vector.
-	void purchaseUpgrade(int upgradeIndex);
-
-	// Determine the results of a month based on each of the production method's parameters.
-	void calculateMonthlyOutcome();
 
 };
