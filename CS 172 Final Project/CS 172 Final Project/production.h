@@ -22,6 +22,10 @@ protected:
 	long long int initialCost;
 
 public:
+
+	// The destructor which deletes all objects allocated to the heap.
+	~Production();
+
 	long long int calculateMonthlyProfit();
 
 	virtual string checkForFailure();

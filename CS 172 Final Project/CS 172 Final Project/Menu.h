@@ -52,6 +52,9 @@ public:
 	// Constructs the menu object with default values.  See implementation for more info.
 	Menu();
 
+	// The Destructor which deletes all objects allocated to the heap.
+	~Menu();
+
 	// Draws the menu according to the current menuState.
 	void drawMenu();
 

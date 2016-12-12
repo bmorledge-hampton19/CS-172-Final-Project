@@ -21,6 +21,9 @@ public:
 	// The default constructor which merely calls the restoreTable function.
 	HighScoreTable();
 
+	// The destructor which deletes the two vector objects and calls the saveTable function.
+	~HighScoreTable();
+
 	// Prints the contents of the high score table to the screen.
 	void displayTable();
 
