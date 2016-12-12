@@ -37,7 +37,7 @@ long long int Upgrade::activeUpgrade(Production * productionMethod)
 
 void Upgrade::displayUpgradeParameters()
 {
-	cout << upgradeName << " $" << upgradeCost << ": " << upgradeDescription;
+	cout << upgradeName << " $" << Menu::neatlyDisplayNumber(upgradeCost) << ": " << upgradeDescription;
 }
 
 long long int Upgrade::getUpgradeCost()

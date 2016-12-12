@@ -8,6 +8,8 @@
 #include <sstream>
 using namespace std;
 
+class Production;
+
 // A class for handling all of the user input and text being displayed to the user.
 // Also brings together all of the Production objects and sends information
 class Menu {
@@ -56,9 +58,6 @@ private:
 	// Determine the results of a month based on each of the production method's parameters.
 	void calculateMonthlyOutcome();
 
-	// Adds commas to a long number to make it more readable.
-	string neatlyDisplayNumber(long long int number);
-
 public:
 
 	// Constructs the menu object with default values.  See implementation for more info.
@@ -69,6 +68,10 @@ public:
 
 	// Draws the menu according to the current menuState.
 	void drawMenu();
+
+	// Adds commas to a long number to make it more readable.
+	static string neatlyDisplayNumber(long long int number);
+
 
 	// Given the user's input, takes action based on the menu state if the input merits it, and returns true for valid input and false for invalid input.
 	bool interpretUserInput(int input);
