@@ -19,6 +19,7 @@ void Owner::initializeUpgrades()
 	upgrades->push_back(new Upgrade(0, 2, 0, 1, 0, 1, 0, 1.25, "Moar Ovens", 4000, "Doubles production and increases cost of production by 25%"));
 	upgrades->push_back(new Upgrade(0, 2, 0, 1, 0, 1, 0, 1.25, "Even MOAR Ovens", 8000, "Doubles production once more and increases cost of production by 25%"));
 	upgrades->push_back(new Upgrade(0, 2, 0, 1, 0, 1, 0, 1.25, "ALL OF THE OVENS", 16000, "Doubles production yet again and increases cost of production by 25%"));
+	upgrades->push_back(new Upgrade(0, 5, 0, 1, 0, 5, 0, 1, "Monastic Cookie Training", 250000, "Master the art of baking in a mountain-top temple. \n Quintuples cookie production and sell value."));
 
 }
 
