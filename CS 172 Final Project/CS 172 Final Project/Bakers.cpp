@@ -9,6 +9,7 @@ Bakers::Bakers()
 	productionCost = 2000;
 	catastrophicFailureChance = 5;
 	initialCost = 10000;
+	initializeUpgrades();
 
 }
 

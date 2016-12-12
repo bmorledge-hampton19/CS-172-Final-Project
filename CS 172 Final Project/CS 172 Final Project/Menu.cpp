@@ -124,7 +124,7 @@ void Menu::drawMenu()
 		for (int i = 0; i < (int)upgrade->size(); i++) {
 			cout << (i+1) << ". "; 
 			(*upgrade)[i]->displayUpgradeParameters();
-			cout << endl;
+			cout << endl << endl;
 		}
 		
 		// Also give the user the option to return to the main menu.
