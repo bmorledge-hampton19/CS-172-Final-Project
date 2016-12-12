@@ -18,6 +18,9 @@ int main() {
 	// keeps track of whether or not the user has given reasonable input.
 	bool validInput = false;
 
+	// A simple check to prevent the system from clearing the introduction.
+	bool isFirstTime = true;
+
 	// Give the player some introduction.
 	cout << "Welcome to the grand Cookie Empire!" << endl;
 	cout << "Your goal is to produce 1 trillion cookies in a single month!  Wow!" << endl;
@@ -26,8 +29,13 @@ int main() {
 
 	while (!menu->checkForEnding()) {
 
-		// Clear the screen and redraw the menu.
-		system("cls");
+		// Clear the screen if it is not the first time through the loop.
+		if (!isFirstTime) system("cls");
+		
+		// Reset the boolean so that the screen is cleared in the future.
+		isFirstTime = false;
+
+		// Redraw the menu.
 		menu->drawMenu();
 
 		// Reset validInput

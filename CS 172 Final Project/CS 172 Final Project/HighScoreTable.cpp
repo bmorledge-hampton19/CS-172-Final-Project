@@ -116,8 +116,8 @@ void HighScoreTable::restoreTable()
 		while (!restorer.eof()) {
 			
 			// Read in this lines name and score.
-			cin >> name;
-			cin >> score;
+			restorer >> name;
+			restorer >> score;
 
 			// Add those values to the vector.
 			highScoreNames->push_back(name);
@@ -144,7 +144,7 @@ void HighScoreTable::saveTable()
 	// Write the highscores into the text file.
 	for (int i = 0; i < highScoreNames->size(); i++) {
 
-		cout << (*highScoreNames)[i] << " " << (*highScoreValues)[i] << endl;
+		saver << (*highScoreNames)[i] << " " << (*highScoreValues)[i] << endl;
 
 	}
 
