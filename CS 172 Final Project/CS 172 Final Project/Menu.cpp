@@ -29,6 +29,31 @@ Menu::Menu()
 
 }
 
+Menu::~Menu()
+{
+
+	// Delete all objects allocated to the heap.
+	
+	// Delete all of the objects in the vectors before deleting the vectors themselves.
+	for (int i = 0; i < productionForSale->size(); i++) {
+		delete (*productionForSale)[i];
+	}
+
+	for (int i = 0; i < productionPurchased->size(); i++) {
+		delete (*productionPurchased)[i];
+	}
+
+	delete productionForSale;
+	delete productionPurchased;
+
+	// Delete the high score table as well.
+	delete highScoreTable;
+
+	// And the string stream.
+	delete notifications;
+
+}
+
 void Menu::drawMenu()
 {
 

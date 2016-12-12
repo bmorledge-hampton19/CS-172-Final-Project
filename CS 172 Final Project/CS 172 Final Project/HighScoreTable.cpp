@@ -8,11 +8,23 @@ HighScoreTable::HighScoreTable()
 	restoreTable();
 }
 
+HighScoreTable::~HighScoreTable()
+{
+
+	// Save the high score table.
+	saveTable();
+
+	// Delete objects allocated to the heap.
+	delete highScoreNames;
+	delete highScoreValues;
+
+}
+
 void HighScoreTable::displayTable()
 {
 
 	// Print out a header of sorts.
-	cout << "Fastest times to reach 1,000,000 cookies!" << endl << endl;
+	cout << "Fastest times to reach 1,000,000,000 cookies!" << endl << endl;
 
 	// Run through a loop and display each of the scores and names, from first to last.
 	for (int i = 0; i < highScoreNames->size(); i++) {

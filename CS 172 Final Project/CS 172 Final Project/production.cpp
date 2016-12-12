@@ -1,5 +1,14 @@
 #include "Production.h"
 
+Production::~Production()
+{
+	// Delete the contents of the upgrade vector, and then delete the vector.
+	for (int i = 0; i < upgrades->size(); i++) {
+		delete (*upgrades)[i];
+	}
+	delete upgrades;
+}
+
 long long int Production::calculateMonthlyProfit()
 {
 	int monthlyProfit = 0;
