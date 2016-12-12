@@ -17,6 +17,7 @@ Menu::Menu()
 	currentCppm = 0;
 	menuState = 0;
 	monthsPassed = 0;
+	lostOrWon = false;
 
 	// Put an owner object into the productionPurchased vector as the first method of production.
 	productionPurchased->push_back(new Owner);
@@ -54,6 +55,11 @@ Menu::~Menu()
 	// And the string stream.
 	delete notifications;
 
+}
+
+bool Menu::checkForEnding()
+{
+	return lostOrWon;
 }
 
 void Menu::drawMenu()
@@ -347,6 +353,25 @@ void Menu::calculateMonthlyOutcome()
 
 	// Update playerMoney
 	playerMoney += monthlyProfit;
+
+	// Check for win or loss.
+	if (currentCppm >= 1000000000000) {
+
+		// Congratulate the player, adding their score to the leaderboard if necesarry.
+		cout << "Congratulations!  You are the master of cookies!" << endl;
+		if (highScoreTable->doesScoreQualify(monthsPassed)) highScoreTable->addScore(monthsPassed);
+
+		// Display the leaderboard.
+		highScoreTable->displayTable();
+
+		lostOrWon = true;
+
+	}
+	else if (playerMoney < 0) {
+		// The player has lost and should be informed of the fact.
+		cout << "You have gone bankrupt and yourr empire is in shambles... Better luck next Time!";
+		lostOrWon = true;
+	}
 
 }
 

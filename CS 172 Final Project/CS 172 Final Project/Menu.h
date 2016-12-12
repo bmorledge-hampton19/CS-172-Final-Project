@@ -46,6 +46,9 @@ private:
 	// Keeps track of how many months have passed since the beginning of the game.
 	int monthsPassed;
 
+	// Keeps track of whether or not the game has ended.
+	bool lostOrWon;
+
 	// Text displayed at the top of a menu to notify the user of the results of recent events.
 	ostringstream* notifications = new ostringstream;
 
@@ -66,12 +69,14 @@ public:
 	// The Destructor which deletes all objects allocated to the heap.
 	~Menu();
 
+	// Returns whether or not the game has ended.
+	bool checkForEnding();
+
 	// Draws the menu according to the current menuState.
 	void drawMenu();
 
 	// Adds commas to a long number to make it more readable.
 	static string neatlyDisplayNumber(long long int number);
-
 
 	// Given the user's input, takes action based on the menu state if the input merits it, and returns true for valid input and false for invalid input.
 	bool interpretUserInput(int input);
