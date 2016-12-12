@@ -7,6 +7,8 @@
 #include "BreedableCookies.h"
 #include "SentientCookies.h"
 #include "CookieTimeLords.h"
+#include <cmath>
+using namespace std;
 
 Menu::Menu()
 {
@@ -87,7 +89,7 @@ void Menu::drawMenu()
 		
 		// Display all of the production methods available for purchase along with their prices.
 		for (int i = 0; i < (int)productionForSale->size(); i++) {
-			cout << (i +1) << ". " << (*productionForSale)[i]->getNameOfProductionType() << " - $" << (*productionForSale)[i]->getInitialCost() << endl;
+			cout << (i +1) << ". " << (*productionForSale)[i]->getNameOfProductionType() << " - $" << neatlyDisplayNumber((*productionForSale)[i]->getInitialCost()) << endl;
 		}
 
 		// Also give the user the option to return to the main menu.
@@ -153,10 +155,10 @@ void Menu::drawMenu()
 		// Display the parameters for the chosen production method.
 		cout << "Statistics for " << production->getNameOfProductionType() << ":" << endl << endl;
 
-		cout << "Expected cookies produced per month: " << production->getCookiesProduced() << endl;
-		cout << "Expected sale price for cookies: $" << production->getCookieSellValue() << endl;
-		cout << "Expected cost of production per month: $" << production->getProductionCost() << endl;
-		cout << "Expected monthly profit: $" << (production->getCookiesProduced() * production->getCookieSellValue() - production->getProductionCost()) << endl;
+		cout << "Expected cookies produced per month: " << neatlyDisplayNumber(production->getCookiesProduced()) << endl;
+		cout << "Expected sale price for cookies: $" << neatlyDisplayNumber(production->getCookieSellValue()) << endl;
+		cout << "Expected cost of production per month: $" << neatlyDisplayNumber(production->getProductionCost()) << endl;
+		cout << "Expected monthly profit: $" << neatlyDisplayNumber(production->calculateMonthlyProfit()) << endl;
 		
 		cout << "Danger of catastrophic failure for production type: ";
 
@@ -332,8 +334,8 @@ void Menu::calculateMonthlyOutcome()
 		monthlyProfit += (*productionPurchased)[i]->calculateMonthlyProfit();
 
 		// Add the results to the notifications.
-		*notifications << "Your " << (*productionPurchased)[i]->getNameOfProductionType() << " produced " << (*productionPurchased)[i]->getCookiesProduced() << " cookies which sold for $" <<
-			(*productionPurchased)[i]->calculateMonthlyProfit() << ".\n";
+		*notifications << "Your " << (*productionPurchased)[i]->getNameOfProductionType() << " produced " << neatlyDisplayNumber((*productionPurchased)[i]->getCookiesProduced()) 
+			<< " cookies which sold for $" << neatlyDisplayNumber((*productionPurchased)[i]->calculateMonthlyProfit()) << ".\n";
 		
 		// Check for catastrophic failure, adding its information to notifications if necesarry.
 		*notifications << (*productionPurchased)[i]->checkForFailure() << "\n";
@@ -341,9 +343,47 @@ void Menu::calculateMonthlyOutcome()
 	}
 
 	// Add the totals to notifications.
-	*notifications << "In total, you produced " << currentCppm << " cookies which sold for $" << monthlyProfit << ".";
+	*notifications << "In total, you produced " << neatlyDisplayNumber(currentCppm) << " cookies which sold for $" << neatlyDisplayNumber(monthlyProfit) << ".";
 
 	// Update playerMoney
 	playerMoney += monthlyProfit;
+
+}
+
+string Menu::neatlyDisplayNumber(long long int number)
+{
+
+	// The number with commas inserted for readability.
+	string neatNumber;
+	
+	// Determine how many commas will be needed based on the order of magnitude of the number.
+	int commasNeeded = log10(number) / 3;
+
+	// Insert the commas using a for loop.
+	for (int i = commasNeeded; i >= 0; i--) {
+
+		// If the following division will produce a value less than 100, make sure zeroes are added accordingly to the string.
+		// But don't do it if it is the first set of digits! (Ack!  So many exceptions!)
+		if (i != commasNeeded) {
+			if (number / ((int)pow(10, (double)(i * 3))) < 10) {
+				neatNumber += "00";
+			}
+			else if (number / ((int)pow(10, (double)(i * 3))) < 100) {
+				neatNumber += "0";
+			}
+		}
+
+		// Add a set of digits, followed by a comma if it is not the final three digits, to the string.
+		neatNumber += to_string(number / ((int)pow(10, (double)(i * 3))));	
+
+		if (i != 0) neatNumber += ",";
+
+		// Remove the digits that were just added to neatNumber from number.
+		number = number % ((int)pow(10, (double)(i * 3)));
+
+	}
+
+	// Pass back the result.
+	return neatNumber;
 
 }
