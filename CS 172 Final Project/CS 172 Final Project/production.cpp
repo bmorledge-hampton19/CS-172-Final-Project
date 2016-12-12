@@ -71,7 +71,8 @@ int Production::getCatastrophicFailureChance()
 
 void Production::setCatastrophicFailureChance(int catastrophicFailureChance)
 {
-    this->catastrophicFailureChance = catastrophicFailureChance;
+	if (catastrophicFailureChance < 1) this->catastrophicFailureChance = 1;
+	else this->catastrophicFailureChance = catastrophicFailureChance;
 }
 
 long long int Production::getInitialCost()
