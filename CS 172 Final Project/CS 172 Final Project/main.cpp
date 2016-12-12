@@ -18,7 +18,13 @@ int main() {
 	// keeps track of whether or not the user has given reasonable input.
 	bool validInput = false;
 
-	while (true) {
+	// Give the player some introduction.
+	cout << "Welcome to the grand Cookie Empire!" << endl;
+	cout << "Your goal is to produce 1 trillion cookies in a single month!  Wow!" << endl;
+	cout << "Start slowly, and work your way up to the top with upgrades and new production methods." << endl;
+	cout << "You can do it!  Best of luck!" << endl;
+
+	while (!menu->checkForEnding()) {
 
 		// Clear the screen and redraw the menu.
 		system("cls");
@@ -46,6 +52,9 @@ int main() {
 		}
 
 	}
+
+	// Delete the menu.
+	delete menu;
 
 	// End function.  Everything is ok!
 	return 0;
