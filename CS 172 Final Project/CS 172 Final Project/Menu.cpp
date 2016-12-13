@@ -67,8 +67,8 @@ void Menu::drawMenu()
 
 	// Before displaying a specific menu, display the most recent notifications and the player's current funds.  Also, reset the notifications string.
 	cout << notifications->str() << endl << endl;
-	cout << "Your total funds: $" << playerMoney << endl;
-	cout << "Last month you produced " << currentCppm << " cookies." << endl;
+	cout << "Your total funds: $" << neatlyDisplayNumber(playerMoney) << endl;
+	cout << "Last month you produced " << neatlyDisplayNumber(currentCppm) << " cookies." << endl;
 	cout << "--------------------------------------------" << endl;
 	notifications->str(string());
 
