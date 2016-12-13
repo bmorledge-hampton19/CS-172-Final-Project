@@ -378,6 +378,9 @@ void Menu::calculateMonthlyOutcome()
 string Menu::neatlyDisplayNumber(long long int number)
 {
 
+	// Return "0" if the number is 0.
+	if (number == 0) return "0";
+
 	// The number with commas inserted for readability.
 	string neatNumber;
 	
