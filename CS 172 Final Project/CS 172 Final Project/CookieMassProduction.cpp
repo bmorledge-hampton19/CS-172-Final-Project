@@ -18,13 +18,13 @@ void CookieMassProduction::initializeUpgrades()
 	upgrades->push_back(new Upgrade(0, 1.25, 2, 1, 0, 1, 0, 1, "Coal powered mega oven and facotry", 100000000, "increases cookie production but also increases risk factor."));
 	upgrades->push_back(new Upgrade(0, 1.33, 0, 1, 0, 1, 0, 1.22, "Human Assembly line", 175000000, "Increases Production but increases overhead"));
 	upgrades->push_back(new Upgrade(0, 1.25, 2, 1, 0, 1, 0, 1, "Diesel Powered mega oven and factory", 250000000, "Increases Production but increases risk factor"));
-	upgrades->push_back(new Upgrade(0, 1.33, 0, 1, 0, 1, 0, 0.88, "Partially Automated Assembly line", 0, "Increases production and slightly reduces overhead overhead"));
-	upgrades->push_back(new Upgrade(0, 1.25, 2, 1, 0, 1, 0, 1, "Solar Powered mega oven and factory", 0, "decreases risk factor but increases overhead"));
-	upgrades->push_back(new Upgrade(0, 1, 0, 0.8, 0, 1, 0, 1.4, "A couple engineers", 0, "Decreseses Risk Factor and increases overhead"));
-	upgrades->push_back(new Upgrade(0, 1.33, 0, 1, 0, 1, 0, 0.88, "Fully Automated Production Line", 0, "Increase in production and decrease in overhead"));
-	upgrades->push_back(new Upgrade(0, 1.25, 4, 1, 0, 1, 0, 1, "Nuclear Powered mega oven and Factory", 0, "vastly reduces risk factor and increases cookie production"));
-	upgrades->push_back(new Upgrade(0, 1.4, 0, 1, 0, 1, 0, 1.7, "Cookie Biology research", 0, "increases overhead and increases Production"));
-	upgrades->push_back(new Upgrade(0, 1.8, 0, 1, 0, 1, 0, 1.6, "Cookie reproduction research", 0, "incerases overhead and increases production"));
+	upgrades->push_back(new Upgrade(0, 1.33, 0, 1, 0, 1, 0, 0.88, "Partially Automated Assembly line", 300000000, "Increases production and slightly reduces overhead overhead"));
+	upgrades->push_back(new Upgrade(0, 1.25, 2, 1, 0, 1, 0, 1, "Solar Powered mega oven and factory", 450000000, "decreases risk factor but increases overhead"));
+	upgrades->push_back(new Upgrade(0, 1, 0, 0.8, 0, 1, 0, 1.4, "A couple engineers", 6000000000, "Decreseses Risk Factor and increases overhead"));
+	upgrades->push_back(new Upgrade(0, 1.33, 0, 1, 0, 1, 0, 0.88, "Fully Automated Production Line", 10000000000, "Increase in production and decrease in overhead"));
+	upgrades->push_back(new Upgrade(0, 1.25, 4, 1, 0, 1, 0, 1, "Nuclear Powered mega oven and Factory", 100000000000, "vastly reduces risk factor and increases cookie production"));
+	upgrades->push_back(new Upgrade(0, 1.4, 0, 1, 0, 1, 0, 1.7, "Cookie Biology research", 500000000000, "increases overhead and increases Production"));
+	upgrades->push_back(new Upgrade(0, 1.8, 0, 1, 0, 1, 0, 1.6, "Cookie reproduction research", 800000000000, "incerases overhead and increases production"));
 }
 
 string CookieMassProduction::checkForFailure()
