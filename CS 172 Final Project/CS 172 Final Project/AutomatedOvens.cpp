@@ -5,7 +5,7 @@ AutomatedOvens::AutomatedOvens()
     cookiesProduced = 50000;
     cookieSellValue = 8;
     productionCost = 35000;
-    catastrophicFailureChance = 20;
+    catastrophicFailureChance = 5;
     initializeUpgrades();
     initialCost = 1000000;
 }
@@ -34,10 +34,11 @@ string AutomatedOvens::checkForFailure()
 	if (rand() % 100 < catastrophicFailureChance) {
 
 		// Incur the effects of the failure.
-
+		cookiesProduced -= 15000;
+		productionCost += 10000;
 
 		// Let the user know what happened.
-        return "Your beloved Adamantium automated ovens stopped automatically funneling perfectly\n baked cookies in the sale containers. your cookie production has been decreased by\n 1500 and your production cost has increased by 1000.\n";
+        return "Your beloved Adamantium automated ovens stopped automatically funneling perfectly\n baked cookies in the sale containers. your cookie production has been decreased by\n 15000 and your production cost has increased by 10000.\n";
 
 	}
 	else return "";
