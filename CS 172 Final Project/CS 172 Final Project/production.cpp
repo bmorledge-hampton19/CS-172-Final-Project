@@ -11,11 +11,7 @@ Production::~Production()
 
 long long int Production::calculateMonthlyProfit()
 {
-	int monthlyProfit = 0;
-
-	monthlyProfit = (cookiesProduced * cookieSellValue) - productionCost;
-
-	return monthlyProfit;
+	return (cookiesProduced * cookieSellValue - productionCost);
 }
 
 string Production::checkForFailure()

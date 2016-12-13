@@ -24,12 +24,12 @@ void HighScoreTable::displayTable()
 {
 
 	// Print out a header of sorts.
-	cout << "Fastest times to reach 1,000,000,000 cookies!" << endl << endl;
+	cout << endl << "Fastest times to reach 1,000,000,000 cookies!" << endl << endl;
 
 	// Run through a loop and display each of the scores and names, from first to last.
 	for (int i = 0; i < highScoreNames->size(); i++) {
 
-		cout << i + 1 << ". " << (*highScoreValues)[i] << " months achieved by " << (*highScoreNames)[i];
+		cout << i + 1 << ". " << (*highScoreValues)[i] << " months achieved by " << (*highScoreNames)[i] << endl;
 
 	}
 
@@ -38,14 +38,14 @@ void HighScoreTable::displayTable()
 bool HighScoreTable::doesScoreQualify(int months)
 {
 	// Return whether or not the score is at least less than the highest value in the scores vector.
-	return (months < highScoreValues->back());
+	return (months < highScoreValues->at(9));
 }
 
 void HighScoreTable::addScore(int months)
 {
 
 	// Determine where the score belongs in the table with a for loop.
-	for (int i = (int)highScoreValues->size() - 1; i <= 0; i--) {
+	for (int i = 0; i < (int)highScoreValues->size(); i++) {
 		
 		// If the value at the given location is greater than the given value for months, the new score belongs in its place.
 		// Everything else behind it needs to pushed back one place.
@@ -61,7 +61,9 @@ void HighScoreTable::addScore(int months)
 			cin >> userName;
 			highScoreNames->insert(highScoreNames->begin() + i, userName);
 			highScoreNames->pop_back();
-			
+
+			// Ensure that the loop doesn't run again.
+			i = 10;
 		}
 
 	}
@@ -118,10 +120,13 @@ void HighScoreTable::restoreTable()
 			// Read in this lines name and score.
 			restorer >> name;
 			restorer >> score;
-
-			// Add those values to the vector.
-			highScoreNames->push_back(name);
-			highScoreValues->push_back(score);
+		
+			// Make sure eof has not been reached.
+			if (!restorer.eof()) {
+				// Add those values to the vector.
+				highScoreNames->push_back(name);
+				highScoreValues->push_back(score);
+			}
 
 		}
 

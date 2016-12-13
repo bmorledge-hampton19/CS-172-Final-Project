@@ -19,7 +19,7 @@ void CookieTimeLords::initializeUpgrades()
 	upgrades->push_back(new Upgrade(0, 1.66, 2, 1, 0, 1, 0, 0.83, "Gallifreyan High Council", 20030001000400, "Cookie production increase and decrease in overhead but increases risk"));
 	upgrades->push_back(new Upgrade(0, 1, 0, 1, 0, 1.45, 0, 1.3, "Portal to view time itself", 100500300004005003, "Increase in sell price but increases overhead"));
 	upgrades->push_back(new Upgrade(0, 1.75, 2, 1, 0, 1.35, 0, 1, "Spatial Movement", 400300070098000200, "Increase cookie price and production but also hugely increases tisk factor"));
-	upgrades->push_back(new Upgrade(0, 3, 0, 2, 0, 3, 0, 1, "Continuity Bomb", 9999999999999999999, "Huge increase in cookie production and sell price with a very large increase in risk"));
+	upgrades->push_back(new Upgrade(0, 3, 0, 2, 0, 3, 0, 1, "Continuity Bomb", 9099999999999999999, "Huge increase in cookie production and sell price with a very large increase in risk"));
 }
 
 string CookieTimeLords::checkForFailure()

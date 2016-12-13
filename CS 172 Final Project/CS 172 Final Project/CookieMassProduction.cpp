@@ -2,9 +2,9 @@
 
 CookieMassProduction::CookieMassProduction()
 {
-	cookiesProduced = 500000;
-	cookieSellValue = 11;
-	productionCost = 700000000;
+	cookiesProduced = 5000000;
+	cookieSellValue = 110;
+	productionCost = 70000000;
 	catastrophicFailureChance = 5;
 	initializeUpgrades();
 	initialCost = 500000000;
@@ -21,8 +21,8 @@ void CookieMassProduction::initializeUpgrades()
 	upgrades->push_back(new Upgrade(0, 1.33, 0, 1, 0, 1, 0, 0.88, "Partially Automated Assembly line", 300000000, "Increases production and slightly reduces overhead overhead"));
 	upgrades->push_back(new Upgrade(0, 1.25, 2, 1, 0, 1, 0, 1, "Solar Powered mega oven and factory", 450000000, "decreases risk factor but increases overhead"));
 	upgrades->push_back(new Upgrade(0, 1, 0, 0.8, 0, 1, 0, 1.4, "A couple engineers", 6000000000, "Decreseses Risk Factor and increases overhead"));
-	upgrades->push_back(new Upgrade(0, 1.33, 0, 1, 0, 1, 0, 0.88, "Fully Automated Production Line", 10000000000, "Increase in production and decrease in overhead"));
-	upgrades->push_back(new Upgrade(0, 1.25, 4, 1, 0, 1, 0, 1, "Nuclear Powered mega oven and Factory", 100000000000, "vastly reduces risk factor and increases cookie production"));
+	upgrades->push_back(new Upgrade(0, 10, 0, 1, 0, 1, 0, 0.88, "Fully Automated Production Line", 10000000000, "Increase in production and decrease in overhead"));
+	upgrades->push_back(new Upgrade(0, 2, -4, 1, 0, 1, 0, 1, "Nuclear Powered mega oven and Factory", 100000000000, "vastly reduces risk factor and increases cookie production"));
 	upgrades->push_back(new Upgrade(0, 1.4, 0, 1, 0, 1, 0, 1.7, "Cookie Biology research", 500000000000, "increases overhead and increases Production"));
 	upgrades->push_back(new Upgrade(0, 1.8, 0, 1, 0, 1, 0, 1.6, "Cookie reproduction research", 800000000000, "incerases overhead and increases production"));
 }
@@ -33,11 +33,11 @@ string CookieMassProduction::checkForFailure()
 	if (rand() % 100 < catastrophicFailureChance) {
 
 		// Incur the effects of the failure.
-		cookiesProduced *= 0.75;
-		cookieSellValue *= 0.35;
+		cookiesProduced *= 0.90;
+		cookieSellValue *= 0.90;
 
 		// Let the user know what happened.
-		return "Your Shiny new factories were stormed by the people who did not agree with the pollution that your factory is outputting.\n Your Cookie Sell Price and production per month decreases a large portion";
+		return "Your Shiny new factories were stormed by the people who did not agree with the pollution that your factory is outputting.\n Your Cookie Sell Price and production per month decreases.\n";
 
 	}
 	else return "";

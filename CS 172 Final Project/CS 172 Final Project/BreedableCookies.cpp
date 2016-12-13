@@ -3,7 +3,7 @@
 BreedableCookies::BreedableCookies()
 {
 	cookiesProduced = 6500000000;
-	cookieSellValue = 280;
+	cookieSellValue = 2800;
 	productionCost = 2800000000000;
 	catastrophicFailureChance = 5;
 	initializeUpgrades();
@@ -26,11 +26,11 @@ string BreedableCookies::checkForFailure()
 	if (rand() % 100 < catastrophicFailureChance) {
 
 		// Incur the effects of the failure.
-		cookiesProduced *= 0.66;
-		cookieSellValue *= 0.2;
+		cookiesProduced *= 0.8;
+		cookieSellValue *= 0.8;
 
 		// Let the user know what happened.
-		return "Your Customers begin to notice the odd abilites of your cookies and an investigative reporter\n looks in to your company and finds that you are illegally breeding cookies.\n Your production decreases and your sell price hits an all-time low";
+		return "Your Customers begin to notice the odd abilites of your cookies and an investigative reporter\n looks in to your company and finds that you are illegally breeding cookies.\n Your production decreases and your sell price hits an all-time low\n";
 
 	}
 	else return "";

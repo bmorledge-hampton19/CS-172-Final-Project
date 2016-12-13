@@ -9,6 +9,9 @@ using namespace std;
 // Main function
 int main() {
 
+	// Seed the RNG with the current time.
+	srand(time(NULL));
+
 	// Create a new menu object.
 	Menu* menu = new Menu;
 

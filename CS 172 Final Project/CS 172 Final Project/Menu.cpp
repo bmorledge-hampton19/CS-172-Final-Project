@@ -359,7 +359,9 @@ void Menu::calculateMonthlyOutcome()
 
 		// Congratulate the player, adding their score to the leaderboard if necesarry.
 		cout << "Congratulations!  You are the master of cookies!" << endl;
-		if (highScoreTable->doesScoreQualify(monthsPassed)) highScoreTable->addScore(monthsPassed);
+		if (highScoreTable->doesScoreQualify(monthsPassed)) {
+			highScoreTable->addScore(monthsPassed);
+		}
 
 		// Display the leaderboard.
 		highScoreTable->displayTable();
@@ -369,7 +371,7 @@ void Menu::calculateMonthlyOutcome()
 	}
 	else if (playerMoney < 0) {
 		// The player has lost and should be informed of the fact.
-		cout << "You have gone bankrupt and yourr empire is in shambles... Better luck next Time!";
+		cout << "You have gone bankrupt and yourr empire is in shambles... Better luck next Time!" << endl;
 		lostOrWon = true;
 	}
 
@@ -383,6 +385,12 @@ string Menu::neatlyDisplayNumber(long long int number)
 
 	// The number with commas inserted for readability.
 	string neatNumber;
+
+	// Makes sure the number being handled is positive, adding the negative sign onto the string if need be.
+	if (number < 0) {
+		number *= -1;
+		neatNumber += "-";
+	}
 	
 	// Determine how many commas will be needed based on the order of magnitude of the number.
 	int commasNeeded = log10(number) / 3;

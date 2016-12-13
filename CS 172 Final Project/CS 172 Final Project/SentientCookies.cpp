@@ -36,7 +36,7 @@ string SentientCookies::checkForFailure()
 		cookiesProduced -= 1000000000;
 
 		// Let the user know what happened.
-		return "Due to political unrest, the cookies have become engaged in a brutal civil war. \nThe number of cookies being produced has consequently been reduced by 1,000,000,000";
+		return "Due to political unrest, the cookies have become engaged in a brutal civil war. \nThe number of cookies being produced has consequently been reduced by 1,000,000,000\n";
 
 	}
 	else return "";
