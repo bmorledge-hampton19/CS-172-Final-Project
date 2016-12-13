@@ -387,27 +387,34 @@ string Menu::neatlyDisplayNumber(long long int number)
 	// Determine how many commas will be needed based on the order of magnitude of the number.
 	int commasNeeded = log10(number) / 3;
 
+	// A number to be used as the divisor for operations within the for loop.
+	long long int divisor;
+
 	// Insert the commas using a for loop.
 	for (int i = commasNeeded; i >= 0; i--) {
+
+		// Recalculate the value for the divisor.
+		divisor = 1;
+		for (int z = 0; z < i * 3; z++) divisor *= 10;
 
 		// If the following division will produce a value less than 100, make sure zeroes are added accordingly to the string.
 		// But don't do it if it is the first set of digits! (Ack!  So many exceptions!)
 		if (i != commasNeeded) {
-			if (number / ((int)pow(10, (double)(i * 3))) < 10) {
+			if (number / divisor < 10) {
 				neatNumber += "00";
 			}
-			else if (number / ((int)pow(10, (double)(i * 3))) < 100) {
+			else if (number / divisor < 100) {
 				neatNumber += "0";
 			}
 		}
 
 		// Add a set of digits, followed by a comma if it is not the final three digits, to the string.
-		neatNumber += to_string(number / ((int)pow(10, (double)(i * 3))));	
+		neatNumber += to_string(number / divisor);	
 
 		if (i != 0) neatNumber += ",";
 
 		// Remove the digits that were just added to neatNumber from number.
-		number = number % ((int)pow(10, (double)(i * 3)));
+		number = number % divisor;
 
 	}
 
